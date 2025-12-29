@@ -1,46 +1,6 @@
 import React, { useState } from "react";
-import {
-  FaPlane,
-  FaHome,
-  FaGraduationCap,
-  FaLandmark,
-  FaNewspaper,
-  FaLightbulb,
-  FaCalculator,
-  FaQrcode,
-  FaArrowRight,
-  FaGlobe,
-} from "react-icons/fa";
-import {
-  FiMessageCircle,
-  FiShoppingCart,
-  FiInstagram,
-  FiFacebook,
-  FiCheckCircle,
-  FiCalendar,
-  FiAward,
-  FiFileText,
-  FiUsers,
-  FiCode,
-  FiHelpCircle,
-  FiLink,
-  FiShield,
-  FiPenTool,
-  FiMessageSquare,
-  FiMail,
-} from "react-icons/fi";
-import { HiOutlinePresentationChartLine } from "react-icons/hi";
-
-import { BsStars } from "react-icons/bs";
+import { FaArrowRight, FaGlobe } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-interface MenuItem {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  href: string;
-  external?: boolean;
-}
 
 interface LanguageOption {
   value: string;
@@ -50,220 +10,6 @@ interface LanguageOption {
 const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [selectedLanguage, setSelectedLanguage] = useState<string>("en");
-
-  const productsMenu: MenuItem[] = [
-    {
-      title: "WhatsApp Business API",
-      description: "Connect with customers via WhatsApp Business API",
-      icon: <FiMessageCircle className="h-5 w-5" />,
-      href: "/products/whatsapp-business-api",
-    },
-    {
-      title: "Click-to-Instagram Direct Ads",
-      description: "Turn every inquiry into a sale",
-      icon: <FiShoppingCart className="h-5 w-5" />,
-      href: "/products/click-to-instagram-direct-ads",
-    },
-    {
-      title: "Instagram Automation",
-      description: "Automate your Instagram DMs & Comments",
-      icon: <FiInstagram className="h-5 w-5" />,
-      href: "/products/instagram-automation",
-    },
-    {
-      title: "Facebook Automation",
-      description: "Automate your Facebook DMs & Comments",
-      icon: <FiFacebook className="h-5 w-5" />,
-      href: "/products/facebook-automation",
-    },
-    {
-      title: "WhatsApp Blue Tick",
-      description: "Get verified on WhatsApp",
-      icon: <FiCheckCircle className="h-5 w-5" />,
-      href: "/products/whatsapp-blue-tick-verification",
-    },
-    {
-      title: "AI Live Chat",
-      description:
-        "AI-powered customer support that resolves 70% of queries instantly",
-      icon: <FiMessageCircle className="h-5 w-5" />,
-      href: "/products/live-chat",
-    },
-  ];
-
-  const industriesMenu: MenuItem[] = [
-    {
-      title: "Travel & Hospitality",
-      description: "Turn conversations into unforgettable stays",
-      icon: <FaPlane className="h-5 w-5" />,
-      href: "/industries/travel-hospitality-whatsapp-ai",
-    },
-    {
-      title: "Offline & Retail",
-      description: "Automate customer engagement and store visits",
-      icon: <FiShoppingCart className="h-5 w-5" />,
-      href: "/industries/offline-retail",
-    },
-    {
-      title: "Real Estate",
-      description:
-        "Turn leads into buyers, schedule site visits, and keep prospects engaged",
-      icon: <FaHome className="h-5 w-5" />,
-      href: "/industries/real-estate",
-    },
-    {
-      title: "Education",
-      description: "Engage students and simplify admissions",
-      icon: <FaGraduationCap className="h-5 w-5" />,
-      href: "/industries/education",
-    },
-    {
-      title: "Events & Webinars",
-      description: "Engage attendees and simplify registration",
-      icon: <FiCalendar className="h-5 w-5" />,
-      href: "/industries/events-webinars",
-    },
-    {
-      title: "Finance & Insurance",
-      description: "Automate client onboarding, policy reminders, and support",
-      icon: <FaLandmark className="h-5 w-5" />,
-      href: "/industries/finance-insurance",
-    },
-  ];
-
-  const resourcesMenu: MenuItem[] = [
-    {
-      title: "Blog",
-      description: "Insights on marketing & automation",
-      icon: <FaNewspaper className="h-5 w-5" />,
-      href: "/blogs",
-    },
-    {
-      title: "Whats New",
-      description: "What's new in Spur AI",
-      icon: <FiLink className="h-5 w-5" />,
-      href: "/whats-new",
-    },
-    {
-      title: "Case Studies",
-      description: "Learn how brands succeed with Spur",
-      icon: <FaLightbulb className="h-5 w-5" />,
-      href: "/case-studies",
-    },
-    {
-      title: "Pitch Deck",
-      description: "Learn about Spur's vision and growth",
-      icon: <HiOutlinePresentationChartLine className="h-5 w-5" />,
-      href: "/pitch-deck",
-    },
-    {
-      title: "Partners",
-      description: "Join our partner program",
-      icon: <FiUsers className="h-5 w-5" />,
-      href: "/partners",
-    },
-    {
-      title: "Compare",
-      description: "Compare WhatsApp and Instagram tools",
-      icon: <FiAward className="h-5 w-5" />,
-      href: "/compare",
-    },
-    {
-      title: "API Documentation",
-      description: "Developer guides and API reference",
-      icon: <FiCode className="h-5 w-5" />,
-      href: "https://api.spurnow.com/docs",
-      external: true,
-    },
-    {
-      title: "Help Center",
-      description: "Guides and documentation",
-      icon: <FiHelpCircle className="h-5 w-5" />,
-      href: "https://help.spurnow.com/",
-      external: true,
-    },
-    {
-      title: "Integrations",
-      description: "Integrate with other tools",
-      icon: <FiLink className="h-5 w-5" />,
-      href: "/integrations",
-    },
-  ];
-
-  const toolsMenu: MenuItem[] = [
-    {
-      title: "Facebook Business Verification",
-      description: "Enable greyed-out verification button in Business Manager",
-      icon: <FiShield className="h-5 w-5" />,
-      href: "/tools/facebook-business-verification",
-    },
-    {
-      title: "AI Chat PDF",
-      description: "Chat with your PDF files using AI",
-      icon: <FiFileText className="h-5 w-5" />,
-      href: "/tools/chat-pdf",
-    },
-    {
-      title: "AI Sentence Rewriter",
-      description: "Rewrite sentences using AI",
-      icon: <FiPenTool className="h-5 w-5" />,
-      href: "/tools/sentence-rewriter",
-    },
-    {
-      title: "Instagram Caption Generator",
-      description: "AI-powered Instagram caption generation",
-      icon: <BsStars className="h-5 w-5" />,
-      href: "/tools/instagram-caption-generator",
-    },
-    {
-      title: "WhatsApp Link Generator",
-      description: "Create shareable WhatsApp chat links",
-      icon: <FiLink className="h-5 w-5" />,
-      href: "/tools/whatsapp-link-generator",
-    },
-    {
-      title: "WhatsApp Share Link Generator",
-      description: "Create viral WhatsApp share links for multiple contacts",
-      icon: <FiUsers className="h-5 w-5" />,
-      href: "/tools/whatsapp-share-link-generator",
-    },
-    {
-      title: "OpenAI API Pricing Calculator",
-      description: "Calculate the cost of using the OpenAI API on other LLMs.",
-      icon: <FaCalculator className="h-5 w-5" />,
-      href: "/tools/openai-chatgpt-api-pricing-calculator",
-    },
-    {
-      title: "WhatsApp QR Code",
-      description: "Generate QR codes for WhatsApp chats",
-      icon: <FaQrcode className="h-5 w-5" />,
-      href: "/tools/whatsapp-qr-code-generator",
-    },
-    {
-      title: "WhatsApp Pricing Calculator",
-      description: "Calculate WhatsApp API costs",
-      icon: <FaCalculator className="h-5 w-5" />,
-      href: "/tools/whatsapp-pricing-calculator",
-    },
-    {
-      title: "Facebook Chat Link",
-      description: "Create Messenger chat links",
-      icon: <FiMessageSquare className="h-5 w-5" />,
-      href: "/tools/facebook-chat-link-generator",
-    },
-    {
-      title: "Instagram Chat Link",
-      description: "Generate Instagram DM links",
-      icon: <FiMessageCircle className="h-5 w-5" />,
-      href: "/tools/instagram-chat-link-generator",
-    },
-    {
-      title: "Email Link Generator",
-      description: "Create mailto: links with QR codes",
-      icon: <FiMail className="h-5 w-5" />,
-      href: "/tools/email-mailto-link-generator",
-    },
-  ];
 
   const languages: LanguageOption[] = [
     { value: "en", label: "English" },
@@ -276,6 +22,10 @@ const Navbar: React.FC = () => {
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedLanguage(e.target.value);
+  };
+
+  const handleMobileLinkClick = () => {
+    setMobileMenuOpen(false);
   };
 
   const SpurLogo: React.FC = () => (
@@ -304,48 +54,48 @@ const Navbar: React.FC = () => {
       >
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 flex items-center gap-2 p-1.5">
+          <Link to="/" className="-m-1.5 flex items-center gap-2 p-1.5">
             <SpurLogo />
             <span className="text-blue-600 text-base font-semibold">Spur</span>
-          </a>
+          </Link>
         </div>
 
-        {/* Desktop Navigation - Now just plain links */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:gap-x-1">
-          <a
-            href="/products"
+          <Link
+            to="/"
             className="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-gray-50 hover:text-gray-900"
           >
             Products
-          </a>
+          </Link>
 
-          <a
-            href="/industries"
+          <Link
+            to="/"
             className="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-gray-50 hover:text-gray-900"
           >
             Industries
-          </a>
+          </Link>
 
-          <a
-            href="/pricing"
+          <Link
+            to="/"
             className="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-gray-50 hover:text-gray-900"
           >
             Pricing
-          </a>
+          </Link>
 
-          <a
-            href="/resources"
+          <Link
+            to="/"
             className="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-gray-50 hover:text-gray-900"
           >
             Resources
-          </a>
+          </Link>
 
-          <a
-            href="/tools"
+          <Link
+            to="/"
             className="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-gray-50 hover:text-gray-900"
           >
             Tools
-          </a>
+          </Link>
         </div>
 
         {/* Right Side Actions */}
@@ -372,7 +122,6 @@ const Navbar: React.FC = () => {
             <Link
               to="/"
               className="group inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:from-blue-700 hover:to-indigo-700 hover:shadow-md"
-              rel="noopener noreferrer"
             >
               <span>Log in</span>
               <FaArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -427,40 +176,53 @@ const Navbar: React.FC = () => {
         <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="space-y-1 px-4 pb-3 pt-2">
             {/* Mobile Navigation Links */}
-            <a
-              href="/products"
+            <Link
+              to="/"
               className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
+              onClick={handleMobileLinkClick}
             >
               Products
-            </a>
+            </Link>
 
-            <a
-              href="/industries"
+            <Link
+              to="/"
               className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
+              onClick={handleMobileLinkClick}
             >
               Industries
-            </a>
+            </Link>
 
-            <a
-              href="/pricing"
+            <Link
+              to="/"
               className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
+              onClick={handleMobileLinkClick}
             >
               Pricing
-            </a>
+            </Link>
 
-            <a
-              href="/resources"
+            <Link
+              to="/"
               className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
+              onClick={handleMobileLinkClick}
             >
               Resources
-            </a>
+            </Link>
 
-            <a
-              href="/tools"
+            <Link
+              to="/"
               className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
+              onClick={handleMobileLinkClick}
             >
               Tools
-            </a>
+            </Link>
+
+            <Link
+              to="/"
+              className="block rounded-lg px-3 py-2 text-base font-medium bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 text-center mt-2"
+              onClick={handleMobileLinkClick}
+            >
+              Log in
+            </Link>
 
             {/* Mobile Language Selector */}
             <div className="py-2">

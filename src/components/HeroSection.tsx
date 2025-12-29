@@ -1,4 +1,3 @@
-
 const HeroSection = () => {
   const customers = [
     {
@@ -150,18 +149,16 @@ const HeroSection = () => {
                 />
                 <div className="absolute right-2 top-1/2 flex -translate-y-1/2 flex-col gap-2 sm:right-4 sm:gap-3">
                   {/* Social Media Icons */}
-                  {["globe", "whatsapp", "instagram", "messenger"].map(
-                    (icon, index) => (
-                      <button
-                        key={icon}
-                        className={`flex h-10 w-10 items-center justify-center rounded-xl bg-white shadow-xl transition-transform hover:scale-105 sm:h-14 sm:w-14 ${
-                          index === 0 ? "ring-2 ring-blue-500" : "opacity-25"
-                        }`}
-                      >
-                        {getSocialIcon(icon)}
-                      </button>
-                    )
-                  )}
+                  {["globe"].map((icon, index) => (
+                    <button
+                      key={icon}
+                      className={`flex h-10 w-10 items-center justify-center rounded-xl bg-white shadow-xl transition-transform hover:scale-105 sm:h-14 sm:w-14 ${
+                        index === 0 ? "ring-2 ring-blue-500" : "opacity-25"
+                      }`}
+                    >
+                      {getSocialIcon(icon)}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>

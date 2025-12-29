@@ -730,7 +730,9 @@ const ChatBot: React.FC<ChatBotProps> = ({
     <div
       className={`fixed ${
         positionClasses[position]
-      } z-50 transition-all duration-300 ${isExpanded ? "w-[30rem]" : "w-96"}`}
+      } z-50 transition-all duration-300 ${
+        isExpanded ? "w-[30rem]" : "w-96"
+      } max-sm:w-[95vw] max-sm:left-1/2 max-sm:transform max-sm:-translate-x-1/2`}
     >
       {/* Chat Window */}
       <div
@@ -820,7 +822,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
 
           {/* Security Info Panel */}
           {showSecurityInfo && (
-            <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-200/50 backdrop-blur-sm p-4 z-10 animate-slide-down">
+            <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-200/50 backdrop-blur-sm p-4 z-10 animate-slide-down max-sm:w-[90vw] max-sm:right-1/2 max-sm:transform max-sm:translate-x-1/2">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <FaLock className="w-4 h-4 text-green-500" />
@@ -1085,7 +1087,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
           {!isScrolledToBottom && messages.length > 3 && (
             <button
               onClick={scrollToBottom}
-              className="fixed bottom-32 right-10 p-3 rounded-full shadow-xl transition-all duration-200 hover:scale-110 hover:shadow-2xl animate-bounce-slow z-20"
+              className="fixed bottom-32 right-10 p-3 rounded-full shadow-xl transition-all duration-200 hover:scale-110 hover:shadow-2xl animate-bounce-slow z-20 max-sm:right-4 max-sm:bottom-28"
               style={{
                 background: `linear-gradient(135deg, ${themeColors.primary}, ${themeColors.secondary})`,
                 boxShadow: `0 8px 25px ${themeColors.primary}40`,
@@ -1105,8 +1107,8 @@ const ChatBot: React.FC<ChatBotProps> = ({
           style={{ backgroundColor: themeColors.background }}
         >
           <form onSubmit={handleSendMessage} className="space-y-3">
-            <div className="flex gap-2">
-              <div className="flex-1 relative">
+            <div className="flex gap-2 max-sm:flex-col">
+              <div className="flex-1 relative max-sm:w-full">
                 <input
                   ref={inputRef}
                   type="text"
@@ -1114,7 +1116,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Type your message here..."
-                  className="w-full px-5 py-3.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:ring-3 focus:ring-blue-500/30 focus:border-blue-500 pr-16 transition-all duration-200"
+                  className="w-full px-5 py-3.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:ring-3 focus:ring-blue-500/30 focus:border-blue-500 pr-16 transition-all duration-200 max-sm:pr-14 max-sm:py-3"
                   style={{
                     color: themeColors.text,
                     backgroundColor: "#f8fafc",
@@ -1123,7 +1125,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
                   autoFocus
                 />
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
-                  <kbd className="px-2 py-1 text-xs bg-white border border-gray-300 rounded-lg text-gray-600 shadow-sm">
+                  <kbd className="px-2 py-1 text-xs bg-white border border-gray-300 rounded-lg text-gray-600 shadow-sm max-sm:hidden">
                     ↵ Enter
                   </kbd>
                 </div>
@@ -1131,7 +1133,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isLoading}
-                className="px-5 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none group"
+                className="px-5 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none group max-sm:w-full max-sm:py-3"
                 style={{
                   background: `linear-gradient(135deg, ${themeColors.primary}, ${themeColors.secondary})`,
                   color: "white",
@@ -1145,6 +1147,9 @@ const ChatBot: React.FC<ChatBotProps> = ({
                     <FaPaperPlane className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                     <span className="text-sm font-medium hidden sm:inline">
                       Send
+                    </span>
+                    <span className="text-sm font-medium sm:hidden">
+                      Send Message
                     </span>
                   </>
                 )}
